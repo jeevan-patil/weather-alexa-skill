@@ -48,7 +48,7 @@ const handlers = {
         weather.weatherFromCity(city, function(data) {
             if(data) {
               if(data.cod == '404') {
-                _self.emit(':tell', 'Sorry! Weather for provided city not found. Please try again!');
+                _self.emit(':tell', 'Sorry! Could not gather weather information from the provided city. Please try again!');
               } else {
                 const sky = data.weather[0].main;
                 const temp = data.main.temp;
