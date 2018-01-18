@@ -28,8 +28,8 @@ const handlers = {
         this.emit(':tellWithCard', HELP_MESSAGE, SKILL_NAME, HELP_REPROMPT);
     },
     'AMAZON.HelpIntent': function () {
-        const speechOutput = this.t('HELP_MESSAGE');
-        const reprompt = this.t('HELP_MESSAGE');
+        const speechOutput = HELP_MESSAGE;
+        const reprompt = HELP_REPROMPT;
         this.emit(':ask', speechOutput, reprompt);
     },
     'AMAZON.CancelIntent': function () {
