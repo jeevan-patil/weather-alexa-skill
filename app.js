@@ -47,15 +47,19 @@ const handlers = {
 
         weather.weatherFromCity(city, function(data) {
             if(data) {
-              const sky = data.weather[0].main;
-              const temp = data.main.temp;
-              const humidity = data.main.humidity;
-              const windspeed = data.wind.speed;
-              var weather = "Weather in " + city + " is " + sky + ".";
-              weather = weather + " Temperature is " + temp + " degree celcius.";
-              weather = weather + " Humidity is " + humidity + " percent.";
-              weather = weather + " Wind speed is " + windspeed + " meters per second.";
-              _self.emit(':tell', weather);
+              if(data.cod == '404') {
+                _self.emit(':tell', 'Sorry! Weather for provided city not found. Please try again!');
+              } else {
+                const sky = data.weather[0].main;
+                const temp = data.main.temp;
+                const humidity = data.main.humidity;
+                const windspeed = data.wind.speed;
+                var weather = "Weather in " + city + " is " + sky + ".";
+                weather = weather + " Temperature is " + temp + " degree celcius.";
+                weather = weather + " Humidity is " + humidity + " percent.";
+                weather = weather + " Wind speed is " + windspeed + " meters per second.";
+                _self.emit(':tell', weather);
+              }
             } else {
               _self.emit(':tell', 'Sorry! Could not recognize the city. Please try again!');
             }
