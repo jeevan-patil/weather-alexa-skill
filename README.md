@@ -2,6 +2,8 @@
 
 This application demonstrates how the Amazon Alexa Skills are developed. This application is nothing but a amazon lambda which handles amazon skill events. I have used openweather APIs to collect weather data from the cities and prepares the meaningful weather report.
 
+You can read more about developing alexa skills in the blog - https://beansroasted.wordpress.com/2018/02/12/developing-amazon-alexa-skills/
+
 This is a live alexa skill whose invocation invocation name is "weather reporter".
 
 Sample utterance to invole this skill is as below:
